@@ -1,0 +1,7 @@
+-   id: check-branch-for-push
+    name: "Only push to matching branch"
+    entry: check-branch-for-push
+    language: python
+    pass_filenames: false
+    always_run: true
+    stages: [push]
