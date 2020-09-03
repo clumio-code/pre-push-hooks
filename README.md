@@ -21,7 +21,7 @@ Add this to your `.pre-commit-config.yaml`
 
 ### Hooks available
 
-#### `no-push-to-branch`
+#### `check-branch-for-push`
 Protect specific branches from direct checkins.
   - `-p` / `--pattern` can be used to protect branches that match a supplied regex
     (e.g. `--pattern, release/.*`). May be specified multiple times.
