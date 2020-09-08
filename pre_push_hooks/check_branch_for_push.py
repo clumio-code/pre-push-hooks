@@ -16,7 +16,7 @@ from typing import Optional
 from typing import Sequence
 
 
-def is_not_on_branch(
+def is_on_branch(
         patterns: AbstractSet[str] = frozenset(),
 ) -> bool:
     """Checks if the remote reference is in the list of allowed patterns"""
@@ -43,7 +43,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parser.parse_args(argv)
 
     patterns = frozenset(args.pattern or ())
-    return int(is_not_on_branch(patterns))
+    return int(is_on_branch(patterns))
 
 
 if __name__ == '__main__':
