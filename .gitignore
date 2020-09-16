@@ -1,5 +1,5 @@
 /build
 .coverage
-/htmlcov
+htmlcov/
 /dist
 /pre_push_hooks.egg-info
