@@ -1,0 +1,10 @@
+README.md
+setup.py
+pre_push_hooks/__init__.py
+pre_push_hooks/check_branch_for_push.py
+pre_push_hooks.egg-info/PKG-INFO
+pre_push_hooks.egg-info/SOURCES.txt
+pre_push_hooks.egg-info/dependency_links.txt
+pre_push_hooks.egg-info/entry_points.txt
+pre_push_hooks.egg-info/requires.txt
+pre_push_hooks.egg-info/top_level.txt

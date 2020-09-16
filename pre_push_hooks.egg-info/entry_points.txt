@@ -1,0 +1,3 @@
+[console_scripts]
+check-branch-for-push = pre_push_hooks.check_branch_for_push:main
+
