@@ -11,7 +11,7 @@ See also: https://github.com/clumio-oss/pre-commit
 Add this to your `.pre-commit-config.yaml`
 
 ```yaml
--   repo: https://github.com/clumio-oss/pre-push-hooks
+-   repo: https://github.com/clumio-code/pre-push-hooks
     rev: v1.0.0 # use the release tag from github
     hooks:
     -   id: check-branch-for-push
