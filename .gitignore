@@ -1,4 +1,4 @@
 /build
 .coverage
 /htmlcov
-__pycache__
+/__pycache__
