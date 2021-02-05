@@ -20,7 +20,7 @@ def is_on_branch(
         patterns: AbstractSet[str] = frozenset(),
 ) -> bool:
     """Checks if the remote reference is in the list of allowed patterns"""
-    ref = os.environ['PRE_COMMIT_REMOTE_REF']
+    ref = os.environ['PRE_COMMIT_REMOTE_BRANCH']
     if not ref:
         sys.exit(0)
     remote_ref = '/'.join(ref.strip().split('/')[2:])
