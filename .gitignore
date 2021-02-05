@@ -3,3 +3,4 @@
 htmlcov/
 /dist
 /pre_push_hooks.egg-info
+*.pyc
