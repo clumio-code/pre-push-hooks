@@ -1,3 +1,7 @@
+#
+# Copyright 2020. Clumio, Inc.
+#
+"""Test for check_branch_for_push.py"""
 import unittest
 import os
 from pre_push_hooks import check_branch_for_push
@@ -19,7 +23,7 @@ class TestPrePushHook(unittest.TestCase):
         ]
         for patterns, remote_ref, expected_result in test_cases:
             with self.subTest(f'{patterns}, {remote_ref} -> {expected_result}'):
-                os.environ['PRE_COMMIT_REMOTE_REF'] = remote_ref
+                os.environ['PRE_COMMIT_REMOTE_BRANCH'] = remote_ref
                 print(patterns, remote_ref)
                 if remote_ref:
                     self.assertEqual(check_branch_for_push.main(patterns), expected_result)
