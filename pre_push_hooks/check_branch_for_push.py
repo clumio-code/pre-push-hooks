@@ -16,7 +16,7 @@ from typing import AbstractSet, Optional, Sequence
 def is_push_to_branch_allowed(
         patterns: AbstractSet[str] = frozenset(),
 ) -> bool:
-    """Checks if the remote reference is in the list of allowed patterns"""
+    """Checks if the remote branch is in the list of allowed patterns"""
     ref = os.environ['PRE_COMMIT_REMOTE_BRANCH']
     if not ref:
         sys.exit(0)
@@ -33,8 +33,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser.add_argument(
         '-p', '--pattern', action='append',
         help=(
-            'regex pattern for branch name to allow pushes to, '
-            'may be specified multiple times'
+            'regex patterns of branch names to match'
         ),
     )
     args = parser.parse_args(argv)
