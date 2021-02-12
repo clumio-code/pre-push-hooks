@@ -1,5 +1,5 @@
 #
-# Copyright 2020. Clumio, Inc.
+# Copyright 2021. Clumio, Inc.
 #
 
 # SHELL ensures more consistent behavior between macOS and Linux.
