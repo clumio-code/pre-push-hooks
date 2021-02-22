@@ -1,26 +1,23 @@
 #
-# Copyright 2019. Clumio, Inc.
+# Copyright 2021. Clumio, Inc.
 #
 # Follow the Google style guide, but with COLUMN_LIMIT=100.
 # https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 # Indent is 4 spaces, no tabs.
-# yapf --style='$GOPATH/src/cdf/yapf.yaml'
 
 """pre-push hook to limit pushes to specific branches."""
 import argparse
+import os
 import re
 import sys
-import os
-from typing import AbstractSet
-from typing import Optional
-from typing import Sequence
+from typing import AbstractSet, Optional, Sequence
 
 
-def is_on_branch(
+def is_push_to_branch_allowed(
         patterns: AbstractSet[str] = frozenset(),
 ) -> bool:
-    """Checks if the remote reference is in the list of allowed patterns"""
-    ref = os.environ['PRE_COMMIT_REMOTE_REF']
+    """Checks if the remote branch is in the list of allowed patterns"""
+    ref = os.environ['PRE_COMMIT_REMOTE_BRANCH']
     if not ref:
         sys.exit(0)
     remote_ref = '/'.join(ref.strip().split('/')[2:])
@@ -30,20 +27,19 @@ def is_on_branch(
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     """Reads the patterns from .pre-commit-config.yaml and 
-    checks if the remote ref matches the pattern.
+    checks if the remote branch matches the pattern.
     """
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '-p', '--pattern', action='append',
         help=(
-            'regex pattern for branch name to allow pushes to, '
-            'may be specified multiple times'
+            'regex patterns of branch names to match'
         ),
     )
     args = parser.parse_args(argv)
 
     patterns = frozenset(args.pattern or ())
-    return int(is_on_branch(patterns))
+    return int(is_push_to_branch_allowed(patterns))
 
 
 if __name__ == '__main__':
